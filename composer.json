@@ -3,7 +3,19 @@
     "name": "php-ai-sdk/laravel",
     "type": "laravel-package",
     "description": "The AI Toolkit for the Laravel framework.",
-    "keywords": ["laravel","php", "sdk", "openai", "google", "gemini", "api", "client", "natural", "language", "processing"],
+    "keywords": [
+        "laravel",
+        "php",
+        "sdk",
+        "openai",
+        "google",
+        "gemini",
+        "api",
+        "client",
+        "natural",
+        "language",
+        "processing"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
@@ -26,10 +38,10 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "PhpAiSdk\\Laravel\\Tests\\": "tests/"
         }
     },
-     "scripts": {
+    "scripts": {
         "lint": "pint -v",
         "test:lint": "pint --test -v",
         "test:types": "phpstan analyse --ansi",
@@ -42,7 +54,12 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "providers": [
+                "PhpAiSdk\\Laravel\\AiSdkServiceProvider"
+            ],
+            "aliases": {
+                "Ai": "PhpAiSdk\\Laravel\\Facades\\Ai"
+            }
         }
     },
     "config": {
